@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="pt_BR">
+<head>
+	<meta charset="UTF-8">
+	<title>WebRtc</title>
+</head>
+<body>
+
+	<audio id="localAudio" autoplay ></videaudioo>
+	
+    <script>
+
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.ogGetUserMedia;
+
+        if(!navigator.getUserMedia) {
+            console.error('navigator.getUserMedia not Support in your Browser...');
+        }
+
+
+        const trackPermissions = {
+            //video : true,
+            audio : true,
+        };
+
+        var audio = document.getElementById("localAudio");
+
+        navigator.mediaDevices
+            .getUserMedia(trackPermissions)
+            .then(handleAudio)
+            .catch(handleErrorAudio);
+
+
+        function handleAudio (audioStream) {
+            var track = audioStream.getAudioTracks();
+            audio.srcObject = audioStream;
+        }
+
+        function handleErrorAudio (err) {
+            console.error(err);
+            if(err.name == 'ConstraintNotSatisfiedError') {
+                console.log('invalid Options');    
+            }
+
+            if(err.name == 'PermissionDinedError' || err.name == 'NotAllowedError') {
+                console.log('Permissio Dinied');    
+            }
+        }
+
+
+
+        
+
+        
+    </script>
+</body>
+</html>

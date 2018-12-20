@@ -2,15 +2,39 @@
 <html lang="pt_BR">
 <head>
 	<meta charset="UTF-8">
-	<title>WebRtc</title>
+    <title>WebRtc</title>
+    
+    <style>
+        .none {
+            filter: none;
+        }
+
+        .sepia {
+            filter: sepia(1);
+        }
+
+        .gray {
+            filter: grayscale(1);
+        }
+
+        .blur {
+            filter: blur(5px);
+        }
+    
+    </style>
 </head>
 <body>
 
     <video id="video" autoplay ></video>
     <canvas id="canvas"> </canvas>
 
-    <hr>
-    <button id="" type="button">Click here for photo</button>
+    <p>Filters:</p>
+    <select id="filter">
+        <option value="none">None</option>
+        <option value="sepia">Sepia</option>
+        <option value="gray">Gray</option>
+        <option value="blur">Blur</option>
+    </select>
 	
     <script>
 
@@ -23,25 +47,14 @@
 
         const trackPermissions = {
             video : true,
-            // video : true,
+            // audio : true,
         };
 
         var video = document.getElementById("video");
-        var canvas = document.getElementById("canvas");
-        var button = document.querySelector("button");
-
-        canvas.width = 480;
-        canvas.height = 360;
-
-        button.onclick = function(){
-
-            console.log(canvas)
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-
-            canvas
-                .getContext('2d')
-                .drawImage(video, 0,0, canvas.width, canvas.height)
+        var select = document.getElementById("filter");
+        
+        select.onchange = function(){
+            video.className = select.value;
         }
 
 
@@ -55,14 +68,10 @@
 
         function handleStream (stream) {
             var track = stream.getVideoTracks();
-
-            console.log(track)
             video.srcObject = stream;
         }
 
         function handleErrorStream (err) {
-
-            
             if(err.name == 'ConstraintNotSatisfiedError') {
                 console.log('invalid Options');    
             }
@@ -70,8 +79,6 @@
             if(err.name == 'PermissionDinedError' || err.name == 'NotAllowedError') {
                 console.log('Permissio Dinied');    
             }
-
-
         }
 
 
