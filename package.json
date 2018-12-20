@@ -1,0 +1,26 @@
+{
+  "name": "son-webrtc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieldarezzo/son-webrtc.git"
+  },
+  "author": "Gabriel Darezzo <darezzo.gabriel@gmail.com> (https://inwork.com.br/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrieldarezzo/son-webrtc/issues"
+  },
+  "homepage": "https://github.com/gabrieldarezzo/son-webrtc#readme",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "peerjs": "^0.3.18"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3"
+  }
+}

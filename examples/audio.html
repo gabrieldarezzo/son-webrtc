@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<audio id="localAudio" autoplay ></videaudioo>
+	<audio id="localAudio" autoplay controls></videaudioo>
 	
     <script>
 
@@ -15,7 +15,6 @@
         if(!navigator.getUserMedia) {
             console.error('navigator.getUserMedia not Support in your Browser...');
         }
-
 
         const trackPermissions = {
             //video : true,
@@ -45,12 +44,6 @@
                 console.log('Permissio Dinied');    
             }
         }
-
-
-
-        
-
-        
     </script>
 </body>
 </html>

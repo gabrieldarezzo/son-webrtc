@@ -6,8 +6,32 @@
 </head>
 <body>
 
-	<video id="localStreamer" autoplay ></video>
-	
-	<script type="text/javascript" src="main.js"></script>
+    <header>
+        <span id="id"></span>
+    </header>
+
+    <main class="login">
+        <video autoplay id="local"></video>
+        <video autoplay id="pattern"></video>
+        
+
+
+        <input type="text" name="peer_id" id="peer_id">
+
+        <button type="button" id="login">Connect</button>
+        <button type="button" id="call">Call</button>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/0.3.18/peer.min.js"></script>
+    
+
+    <script src="bundle.js"></script>
+
+<script>
+
+    
+</script>
 </body>
 </html>
